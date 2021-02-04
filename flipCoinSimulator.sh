@@ -9,10 +9,10 @@ while [ $n -gt 0 ]
 do
 	if [[ $((RANDOM%2)) -eq 1 ]]
 	then
-		echo "Heads"
+		#echo "Heads"
 		heads=$(($heads+1))
 	else
-		echo "Tails"
+		#echo "Tails"
 		tails=$(($tails+1))
 	fi
 
@@ -27,7 +27,12 @@ do
 	elif [[ $heads -eq 21 && $tails -eq 21 ]]
 	then
 		echo "Its a draw"
-		break
+		if [[ $(($heads-$tails)) -eq 2 ]]
+		then
+			echo $heads
+			echo $tails
+			break
+		fi
 	fi
 	n=$(($n+1))
 done
